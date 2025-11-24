@@ -32,7 +32,9 @@ CPM = {
     50.5: 0.84279999, 51: 0.84529999,
 }
 
-def load_pokedex(path="/private/var/mobile/Containers/Data/Application/75B42065-B1E8-43D6-A497-289C1F38ED8F/Documents/PogoIVReader/pogo_scripts/pokedex.json"):
+def load_pokedex():
+    path = "/private/var/mobile/Containers/Data/Application/75B42065-B1E8-43D6-A497-289C1F38ED8F/Documents/PogoIVReader/pogo_scripts/pokedex.json"
+    #path = "pokedex.json"
     p = Path(path)
     if not p.exists():
         raise SystemExit("pokedex.json not found – run build_pokedex.py first")
@@ -202,6 +204,6 @@ def get_iv(name, ivs, league="great"):
 
 
 if __name__ == "__main__":
-    main2()
-    # main('Marowak', (1, 15, 15), 'great')
-
+    #main2()
+    rank = get_iv('Marowak', (1, 15, 15), 'great')
+    print(rank)
