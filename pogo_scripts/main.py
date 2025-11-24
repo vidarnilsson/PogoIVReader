@@ -6,8 +6,8 @@ from find_evolutions import get_evolution_chain
 
 def main():
     name = sys.argv[1]
-    ev_chain = get_evolution_chain(name)
     ivs = get_bar_values()
+    ev_chain = get_evolution_chain(name)
 
     ranks = []
     for pokemon in ev_chain["species"]:
