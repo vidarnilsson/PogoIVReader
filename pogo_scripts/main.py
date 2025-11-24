@@ -4,7 +4,7 @@ from iv_img_processor import get_bar_values
 from find_evolutions import get_evolution_chain
 
 
-def main():
+def main2():
     name = sys.argv[1]
     ev_chain = get_evolution_chain(name)
     ivs = get_bar_values()
@@ -15,3 +15,6 @@ def main():
         ranks.append(rank)
     print(ranks)
 
+def main():
+    name = sys.argv[1]
+    print(name)
