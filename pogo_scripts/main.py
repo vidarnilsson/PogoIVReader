@@ -1,7 +1,7 @@
 import sys
-from pvp_iv_calc import get_iv
-from iv_img_processor import get_bar_values
-from find_evolutions import get_evolution_chain
+from .pvp_iv_calc import get_iv
+from .iv_img_processor import get_bar_values
+from .find_evolutions import get_evolution_chain
 
 
 def main():
