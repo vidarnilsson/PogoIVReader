@@ -32,7 +32,7 @@ CPM = {
     50.5: 0.84279999, 51: 0.84529999,
 }
 
-def load_pokedex(path="pokedex.json"):
+def load_pokedex(path="/private/var/mobile/Containers/Data/Application/75B42065-B1E8-43D6-A497-289C1F38ED8F/Documents/PogoIVReader/pogo_scripts/pokedex.json"):
     p = Path(path)
     if not p.exists():
         raise SystemExit("pokedex.json not found – run build_pokedex.py first")
