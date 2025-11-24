@@ -100,7 +100,7 @@ def rank_all_ivs(base, cp_cap, min_level=1, max_level=51):
 
     return rows
 
-def main():
+def main2():
     if len(sys.argv) < 3:
         print("Usage: python3 pvp_iv_calc.py \"Pokemon Name\" A_D_S [league]")
         print("Example: python3 pvp_iv_calc.py \"Marowak (Alola)\" 0_15_15 great")
@@ -165,5 +165,43 @@ def main():
             f"   {row['stat_prod']}"
         )
 
+def get_iv(name, ivs, league="great"):
+    atk_iv, def_iv, sta_iv = ivs
+
+    if league.startswith("g"):
+        cp_cap = 1500
+    elif league.startswith("u"):
+        cp_cap = 2500
+    elif league.startswith("m"):
+        cp_cap = 10000  # effectively no cap
+    else:
+        raise SystemExit("league must be great / ultra / master")
+
+    pokedex = load_pokedex()
+    if name not in pokedex:
+        print(f"Pokemon '{name}' not found in pokedex.json")
+        print("Example key formats:")
+        for k in list(pokedex.keys())[:10]:
+            print(" ", k)
+        sys.exit(1)
+
+    base = pokedex[name]["atk"], pokedex[name]["def"], pokedex[name]["sta"]
+    rows = rank_all_ivs(base, cp_cap)
+
+    target = None
+    for row in rows:
+        if (row["atk_iv"], row["def_iv"], row["sta_iv"]) == (atk_iv, def_iv, sta_iv):
+            target = row
+            break
+
+    if not target:
+        print("These IVs never fit under the CP cap for this league.")
+        sys.exit(0)
+
+    return target['rank']
+
+
 if __name__ == "__main__":
-    main()
+    main2()
+    # main('Marowak', (1, 15, 15), 'great')
+
