@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 
 
 def get_bar_values():
-    matplotlib.use("TkAgg")
+    #matplotlib.use("TkAgg")
     img = plt.imread("~group/Bild.jpeg")
+    #img = plt.imread("IMG_1031.JPG")
 
     #img = plt.imread("/private/var/mobile/Containers/Shared/AppGroup/176F5BA0-34E1-4494-B861-014C2B3312EE/Bild.jpeg")
     y_values = [70, 195, 323]
@@ -25,8 +26,3 @@ def get_bar_values():
 
         ivs.append((int(15 * orange_count / count)))
     return ivs
-
-
-#plt.imshow(img)
-#plt.axis("off")
-#plt.show()
