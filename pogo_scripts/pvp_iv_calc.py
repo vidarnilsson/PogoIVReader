@@ -1,4 +1,5 @@
 import json, math, sys
+import os
 from pathlib import Path
 
 # --- CP multipliers, official values (GamePress/GOHub) ---
@@ -33,7 +34,7 @@ CPM = {
 }
 
 def load_pokedex():
-    path = "/private/var/mobile/Containers/Data/Application/75B42065-B1E8-43D6-A497-289C1F38ED8F/Documents/PogoIVReader/pogo_scripts/pokedex.json"
+    path = f"{os.getcwd()}/pokedex.json"
     #path = "pokedex.json"
     p = Path(path)
     if not p.exists():
